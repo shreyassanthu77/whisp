@@ -1,2 +1,2 @@
 # whisp
-WT Project
+A simple social media app for micro blogging
