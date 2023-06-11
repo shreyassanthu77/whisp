@@ -1,0 +1,15 @@
+<h4 class="text-2xl font-medium">Home</h4>
+<div class="grid grid-cols-2 mt-2">
+    <a href="/" class="active">Following</a>
+    <a href="/trending">Trending</a>
+</div>
+
+<style lang="postcss">
+    a {
+        @apply text-center py-4 hover:bg-gray-50/10 transition-colors;
+    }
+
+    a.active {
+        @apply text-primary border-b-2 border-current;
+    }
+</style>
