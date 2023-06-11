@@ -23,11 +23,11 @@ jobs:
           node-version: lts/*
 
       - name: Build step
-        run: npm install && npm run build # 📝 Update the build command(s)
+        run: pnpm install && pnpm run build # 📝 Update the build command(s)
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "quick-cow-62"
-          entrypoint: "https://deno.land/std@0.188.0/http/file_server.ts" # 📝 Update the entrypoint
+          project: "whisp"
+          entrypoint: "server/entry.mjs" # 📝 Update the entrypoint
           root: "dist"
