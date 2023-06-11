@@ -1,7 +1,30 @@
+---
+const path = Astro.url.pathname;
+
+const tabs: {
+    name: string;
+    href: string;
+}[] = [
+    {
+        name: "Following",
+        href: "/",
+    },
+    {
+        name: "Trending",
+        href: "/trending",
+    },
+];
+---
+
 <h4 class="text-2xl font-medium">Home</h4>
 <div class="grid grid-cols-2 mt-2">
-    <a href="/" class="active">Following</a>
-    <a href="/trending">Trending</a>
+    {
+        tabs.map((tab) => (
+            <a href={tab.href} class={path === tab.href ? "active" : ""}>
+                {tab.name}
+            </a>
+        ))
+    }
 </div>
 
 <style lang="postcss">
