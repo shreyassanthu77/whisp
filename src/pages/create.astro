@@ -1,0 +1,24 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../components/Layout.astro";
+---
+
+<Layout title="Whisper">
+    <Fragment slot="header">
+        <Header title="New Whisper" />
+    </Fragment>
+    <form action="/" method="post" class="flex flex-col">
+        <textarea
+            name="whisper"
+            rows="5"
+            maxlength="150"
+            placeholder="What's on your mind?"
+            class="block mt-2 w-full bg-transparent border-2 border-primary-darker outline-none focus:border-primary rounded-lg p-4 min-h-[200px] max-h-[600px]"
+        ></textarea>
+        <button
+            type="submit"
+            class="mt-4 max-w-max text-lg items-center px-12 rounded-full py-3 text-primary border-2 border-primary hover:bg-primary hover:text-white transition-colors"
+            >Submit</button
+        >
+    </form>
+</Layout>

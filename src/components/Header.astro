@@ -3,7 +3,7 @@ import BackIcon from "../assets/icons/BackIcon.astro";
 
 export interface Props {
     title: string;
-    subtitle: string;
+    subtitle?: string;
 }
 
 const { title, subtitle } = Astro.props;
@@ -15,6 +15,6 @@ const { title, subtitle } = Astro.props;
     </a>
     <div>
         <strong class="text-lg font-medium">{title}</strong>
-        <p class="text-sm font-light">{subtitle}</p>
+        {subtitle && <p class="text-sm font-light">{subtitle}</p>}
     </div>
 </div>
