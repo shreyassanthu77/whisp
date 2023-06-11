@@ -1,0 +1,73 @@
+---
+import HeartIcon from "../assets/icons/HeartIcon.astro";
+import BookmarkIcon from "../assets/icons/BookmarkIcon.astro";
+import CommentIcon from "../assets/icons/CommentIcon.astro";
+
+export interface Props {
+    name: string;
+    username: string;
+    avatar: string;
+    content: string;
+    likes: number;
+    comments: number;
+    time: string;
+    liked: boolean;
+    bookmarked: boolean;
+    showBookmark?: boolean;
+}
+
+const {
+    name,
+    username,
+    avatar,
+    content,
+    likes,
+    comments,
+    time,
+    liked,
+    bookmarked,
+    showBookmark = true,
+} = Astro.props;
+---
+
+<article class="flex items-start gap-4 py-4 border-b border-gray-800">
+    <img src={avatar} alt={name} class="w-12 h-12 rounded-full" />
+    <div>
+        <p>
+            <strong class="text-xl font-bold"></strong>
+            <span class="text-gray-500 ml-2">@{username}</span>
+            <span class="text-gray-500 ml-2">•</span>
+            <span class="text-gray-500 ml-2">{time}</span>
+        </p>
+        <p>
+            {content}
+        </p>
+        <div class="mt-4 flex justify-evenly">
+            <button
+                class={`flex p-2 hover:text-red-500 ${
+                    liked ? "text-red-500" : ""
+                } transition-colors`}
+            >
+                <HeartIcon fill={liked ? "currentColor" : "none"} />
+                <span class="ml-2">{likes}</span>
+            </button>
+            <button class="flex p-2 hover:text-green-500 transition-colors">
+                <CommentIcon />
+                <span class="ml-2">{comments}</span>
+            </button>
+            {
+                showBookmark && (
+                    <button
+                        class={`p-2 rounded-full hover:text-blue-500 ${
+                            bookmarked ? "text-blue-500" : ""
+                        } transition-colors`}
+                    >
+                        <BookmarkIcon
+                            fill={bookmarked ? "currentColor" : "none"}
+                        />
+                    </button>
+                )
+            }
+        </div>
+    </div>
+</article>
